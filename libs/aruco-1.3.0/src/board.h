@@ -83,7 +83,7 @@ class ARUCO_EXPORTS BoardConfiguration : public vector< MarkerInfo > {
     /**Loads from file
      * @param filePath to the config file
      */
-    BoardConfiguration(string filePath) throw(cv::Exception);
+    BoardConfiguration(string filePath); //(cv::Exception);
 
     /**
     */
@@ -94,10 +94,10 @@ class ARUCO_EXPORTS BoardConfiguration : public vector< MarkerInfo > {
     BoardConfiguration &operator=(const BoardConfiguration &T);
     /**Saves the board info to a file
     */
-    void saveToFile(string sfile) throw(cv::Exception);
+    void saveToFile(string sfile);// throw(cv::Exception);
     /**Reads board info from a file
     */
-    void readFromFile(string sfile) throw(cv::Exception);
+    void readFromFile(string sfile);// throw(cv::Exception);
     /**Indicates if the corners are expressed in meters
      */
     bool isExpressedInMeters() const { return mInfoType == METERS; }
@@ -109,7 +109,7 @@ class ARUCO_EXPORTS BoardConfiguration : public vector< MarkerInfo > {
     int getIndexOfMarkerId(int id) const;
     /**Returns the Info of the marker with id specified. If not in the set, throws exception
      */
-    const MarkerInfo &getMarkerInfo(int id) const throw(cv::Exception);
+    const MarkerInfo &getMarkerInfo(int id) const;// const throw(cv::Exception);
     /**Set in the list passed the set of the ids
      */
     void getIdList(vector< int > &ids, bool append = true) const;
@@ -117,10 +117,10 @@ class ARUCO_EXPORTS BoardConfiguration : public vector< MarkerInfo > {
   private:
     /**Saves the board info to a file
     */
-    void saveToFile(cv::FileStorage &fs) throw(cv::Exception);
+    void saveToFile(cv::FileStorage &fs);// throw(cv::Exception);
     /**Reads board info from a file
     */
-    void readFromFile(cv::FileStorage &fs) throw(cv::Exception);
+    void readFromFile(cv::FileStorage &fs);// throw(cv::Exception);
 };
 
 /**
@@ -143,7 +143,7 @@ class ARUCO_EXPORTS Board : public vector< Marker > {
     /**Given the extrinsic camera parameters returns the GL_MODELVIEW matrix for opengl.
     * Setting this matrix, the reference corrdinate system will be set in this board
      */
-    void glGetModelViewMatrix(double modelview_matrix[16]) throw(cv::Exception);
+    void glGetModelViewMatrix(double modelview_matrix[16]);// throw(cv::Exception);
 
     /**
      * Returns position vector and orientation quaternion for an Ogre scene node or entity.
@@ -155,15 +155,15 @@ class ARUCO_EXPORTS Board : public vector< Marker > {
      * mySceneNode->setOrientation( ogreOrient  );
      * ...
      */
-    void OgreGetPoseParameters(double position[3], double orientation[4]) throw(cv::Exception);
+    void OgreGetPoseParameters(double position[3], double orientation[4]);// throw(cv::Exception);
 
 
     /**Save this from a file
      */
-    void saveToFile(string filePath) throw(cv::Exception);
+    void saveToFile(string filePath);// throw(cv::Exception);
     /**Read  this from a file
      */
-    void readFromFile(string filePath) throw(cv::Exception);
+    void readFromFile(string filePath);// throw(cv::Exception);
 
     /**Draws the detected markers
      */
